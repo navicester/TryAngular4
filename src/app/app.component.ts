@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'srvup-root',
   templateUrl: './app.component.html',
+  //template: `{{title}} is cool`,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'My Apps';
 }
