@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideoListComponent implements OnInit {
 
+  title = "someting"
+  
   constructor() { }
 
   ngOnInit() {
