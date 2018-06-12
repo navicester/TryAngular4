@@ -9,6 +9,7 @@ import { DomSanitizer } from '@angular/platform-browser'
 export class VideoListComponent implements OnInit {
 
   title = "someting"
+  todayDate;
   // videoList= ["Item 1", "Item 2", "Item3"]
   videoList = [
     {
@@ -31,9 +32,10 @@ export class VideoListComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    this.todayDate = new Date()
   }
 
   getEmbedUrl(item){
-    return this.sanitizer.bypassSecurityTrustResourceUrl('http://player.youku.com/embed/' + item.embed + '==')
+    return 'http://player.youku.com/embed/' + item.embed + '=='
   }
 }
