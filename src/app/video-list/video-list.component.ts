@@ -15,12 +15,14 @@ export class VideoListComponent implements OnInit {
     {
       name: 'Item 1',
       slug: 'item-1',
-      embed: `XMzU5MjI4NTI3Mg`,
+      // embed: `XMzU5MjI4NTI3Mg`,
+      embed: `95851db6%2Dd22f%2D4e32%2D8d7c%2Dc06a907f9457`,      
     },
     {
       name: 'Item 2',
       slug: 'item-2',
-      embed: `XMzU5MjI4NTI3Mg`,
+      // embed: `XMzU5MjI4NTI3Mg`,
+      embed: `10d528b2%2Ddc88%2D4ad5%2D8bb5%2D7aceff22c5ef`,
     },
     {
       name: 'Item 3',
@@ -36,6 +38,7 @@ export class VideoListComponent implements OnInit {
   }
 
   getEmbedUrl(item){
-    return 'http://player.youku.com/embed/' + item.embed + '=='
+    // return 'http://player.youku.com/embed/' + item.embed + '=='
+    return 'https://nokia.sharepoint.com/portals/hub/_layouts/15/VideoEmbedHost.aspx?chId=1b8cfb68%2D329c%2D45db%2D836c%2D0e3926661633&vId=' + item.embed + '&width=640&height=360&autoPlay=false&showInfo=true'    
   }
 }

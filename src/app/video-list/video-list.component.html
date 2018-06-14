@@ -5,9 +5,11 @@
 <div *ngFor='let item of videoList' >  
   <a href="videos/{{item.slug}}" >{{item.name}}</a>
   <!-- <div [innerHTML] = 'item.embed'></div> -->
-  <div style="position: relative;height: 0;padding-bottom: 56.25%" *ngIf='item.embed'>
+  <div style="position: relative; height:0; padding-bottom: 35%" *ngIf='item.embed'>
+  <!-- <div style="position: relative; height:0; padding-bottom: 56.25%" *ngIf='item.embed'> -->
   	<!-- <iframe [src]='getEmbedUrl(item)' allowFullScreen='true' quality='high' width='480' height='400' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></iframe> -->
-  	<iframe [src]='getEmbedUrl(item)|safe' width='480' height='400' frameborder=0 allowFullScreen='true'></iframe>
+  	<iframe [src]='getEmbedUrl(item)|safe' width='640' height='360' frameborder=0 allowFullScreen='true'></iframe>
+
   </div>
   
   
