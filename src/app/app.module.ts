@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AppComponent } from './app.component';
 import { VideoListComponent } from './video-list/video-list.component';
@@ -17,6 +18,7 @@ import { SafePipe } from './utility/safe.pipe';
     SafePipe
   ],
   imports: [
+    BsDropdownModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
   ],
