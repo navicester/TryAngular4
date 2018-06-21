@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Item 1",
+    "slug": "item-1",
+    "embed": "95851db6%2Dd22f%2D4e32%2D8d7c%2Dc06a907f9457"
+  },
+  {
+    "name": "Item 2",
+    "slug": "item-2",
+    "embed": "10d528b2%2Ddc88%2D4ad5%2D8bb5%2D7aceff22c5ef"
+  },
+  {
+    "name": "Item 3",
+    "slug": "item-3",
+    "embed": null
+  }
+]

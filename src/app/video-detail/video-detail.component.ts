@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'video-detail',
@@ -9,18 +10,34 @@ import { ActivatedRoute } from '@angular/router';
 export class VideoDetailComponent implements OnInit, OnDestroy {
 
   private routeSub:any;
+  private req:any
+
+  // video = {
+  //   name: 'Item 1',
+  //   slug: 'item-1',
+  //   embed: `95851db6%2Dd22f%2D4e32%2D8d7c%2Dc06a907f9457`,      
+  // }
+  video: any;
   slug:string;
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private http:Http) { }
 
   ngOnInit() {
     this.routeSub = this.route.params.subscribe(params => {
-      console.log(params);
+      // console.log(params);
       this.slug = params['slug']
+      this.req = this.http.get("assets/json/videos.json").subscribe(data=>{
+        data.json().filter(item=>{
+          if(item.slug == this.slug){
+            this.video = item
+          }
+        })
+      })      
     }) 
   }
 
   ngOnDestroy() {
     this.routeSub.unsubscribe()
+    this.req.unsubscribe()
   }
 
 }

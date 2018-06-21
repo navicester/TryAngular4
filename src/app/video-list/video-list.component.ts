@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser'
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Http } from '@angular/http';
+// import { DomSanitizer } from '@angular/platform-browser'
 
 @Component({
   selector: 'video-list',
@@ -8,33 +9,44 @@ import { DomSanitizer } from '@angular/platform-browser'
 })
 export class VideoListComponent implements OnInit {
 
+  private req:any
   title = "someting"
   todayDate;
   // videoList= ["Item 1", "Item 2", "Item3"]
-  videoList = [
-    {
-      name: 'Item 1',
-      slug: 'item-1',
-      // embed: `XMzU5MjI4NTI3Mg`,
-      embed: `95851db6%2Dd22f%2D4e32%2D8d7c%2Dc06a907f9457`,      
-    },
-    {
-      name: 'Item 2',
-      slug: 'item-2',
-      // embed: `XMzU5MjI4NTI3Mg`,
-      embed: `10d528b2%2Ddc88%2D4ad5%2D8bb5%2D7aceff22c5ef`,
-    },
-    {
-      name: 'Item 3',
-      slug: 'item-3',
-      embed: null,
-    }
-  ]
+  videoList : [any];
+  // videoList = [
+  //   {
+  //     name: 'Item 1',
+  //     slug: 'item-1',
+  //     // embed: `XMzU5MjI4NTI3Mg`,
+  //     embed: `95851db6%2Dd22f%2D4e32%2D8d7c%2Dc06a907f9457`,      
+  //   },
+  //   {
+  //     name: 'Item 2',
+  //     slug: 'item-2',
+  //     // embed: `XMzU5MjI4NTI3Mg`,
+  //     embed: `10d528b2%2Ddc88%2D4ad5%2D8bb5%2D7aceff22c5ef`,
+  //   },
+  //   {
+  //     name: 'Item 3',
+  //     slug: 'item-3',
+  //     embed: null,
+  //   }
+  // ]
 
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private http:Http) { }
+  // constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.todayDate = new Date()
+    this.req = this.http.get("assets/json/videos.json").subscribe(data=>{
+      console.log(data.json())
+      this.videoList = data.json() as [any];
+    })
+  }
+
+  ngOnDestory(){
+    this.req.unsubscribe()
   }
 
   getEmbedUrl(item){

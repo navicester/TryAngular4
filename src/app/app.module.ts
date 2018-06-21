@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 
@@ -26,6 +29,7 @@ import { HomeComponent } from './home/home.component';
     CarouselModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
+    HttpModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
