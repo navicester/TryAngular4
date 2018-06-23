@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
+import { Http} from '@angular/http'
 
 @Component({
   selector: 'app-home',
@@ -9,15 +10,29 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   // prevented = false
+  private req:any;
 
   homeImageList = [
-    { image: "assets/images/nature/4.jpg", title:"Image 4", link:"videos/video-1"},
-    { image: "assets/images/nature/5.jpg", title:"Image 5", link:"videos/video-1"},
-    { image: "assets/images/nature/6.jpg", title:"Image 6", link:"videos/video-1"},
+    // { image: "assets/images/nature/4.jpg", name:"Image 4", slug:"videos/video-1"},
+    // { image: "assets/images/nature/5.jpg", name:"Image 5", slug:"videos/video-1"},
+    // { image: "assets/images/nature/6.jpg", name:"Image 6", slug:"videos/video-1"},
   ]
-  constructor(private router:Router) { }
+  constructor(private http:Http, private router:Router) { }
 
   ngOnInit() {
+    this.req = this.http.get("assets/json/videos.json").subscribe(data=>{
+      console.log(data.json())
+      data.json().filter(item=>{
+        if(item.featured){
+          this.homeImageList.push(item)
+        }
+      })
+      // this.homeImageList = data.json();
+    })    
+  }
+
+  ngOnDestroy(){
+    this.req.unsubscribe()
   }
 
   preventNormal(event:MouseEvent, image:any){
