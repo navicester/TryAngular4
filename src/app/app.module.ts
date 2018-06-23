@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-// import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -14,6 +14,7 @@ import { VideoDetailComponent } from './video-detail/video-detail.component';
 import { AppRoutingModule} from './app.routing';
 import { SafePipe } from './utility/safe.pipe';
 import { HomeComponent } from './home/home.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     VideoListComponent,
     VideoDetailComponent,
     SafePipe,
-    HomeComponent
+    HomeComponent,
+    SearchComponent
   ],
   imports: [
     //ngx-bootstraps
@@ -30,6 +32,7 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     HttpModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
