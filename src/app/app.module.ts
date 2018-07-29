@@ -15,6 +15,7 @@ import { AppRoutingModule} from './app.routing';
 import { SafePipe } from './utility/safe.pipe';
 import { HomeComponent } from './home/home.component';
 import { SearchComponent } from './search/search.component';
+import { SearchDetailComponent } from './search-detail/search-detail.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SearchComponent } from './search/search.component';
     VideoDetailComponent,
     SafePipe,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    SearchDetailComponent
   ],
   imports: [
     //ngx-bootstraps
