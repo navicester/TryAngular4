@@ -1,11 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Http } from '@angular/http';
 // import { DomSanitizer } from '@angular/platform-browser'
+// import { Http } from '@angular/http';
+import { VideoService } from '../videos/videos.service'
 
 @Component({
   selector: 'video-list',
   templateUrl: './video-list.component.html',
-  styleUrls: ['./video-list.component.css']
+  styleUrls: ['./video-list.component.css'],
+  providers: [VideoService]
 })
 export class VideoListComponent implements OnInit {
 
@@ -34,15 +36,19 @@ export class VideoListComponent implements OnInit {
   //   }
   // ]
 
-  constructor(private http:Http) { }
+  // constructor(private http:Http) { }
+  constructor(private _video:VideoService) { }
   // constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.todayDate = new Date()
-    this.req = this.http.get("assets/json/videos.json").subscribe(data=>{
-      console.log(data.json())
-      this.videoList = data.json() as [any];
-    })
+    // this.req = this.http.get("assets/json/videos.json").subscribe(data=>{
+    //   console.log(data.json())
+    //   this.videoList = data.json() as [any];
+    this.req = this._video.list().subscribe(data=>{
+      console.log(data)
+      this.videoList = data as [any];
+    })    
   }
 
   ngOnDestory(){

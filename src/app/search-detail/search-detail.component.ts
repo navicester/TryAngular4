@@ -1,14 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-search-detail',
   templateUrl: './search-detail.component.html',
-  styleUrls: ['./search-detail.component.css']
+  styleUrls: ['./search-detail.component.css'],
 })
+
 export class SearchDetailComponent implements OnInit, OnDestroy {
   private routeSub:any;
-  query：String;
+  query: string;
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -18,7 +20,7 @@ export class SearchDetailComponent implements OnInit, OnDestroy {
       })
   }
 
-  OnDestroy() {
+  ngOnDestroy() {
       this.routeSub.unsubscribe()
   }
 }
