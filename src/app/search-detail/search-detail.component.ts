@@ -13,7 +13,7 @@ export class SearchDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
       this.routeSub = this.route.params.subscribe(params=>{
-          console.log(params)
+          // console.log(params)
           this.query = params['q']
       })
   }

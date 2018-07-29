@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,22 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'My Apps';
+  description = 'A new app';
+  query: string;
+  private routeSub:any;
+
+  constructor(private route:ActivatedRoute){
+      this.routeSub = route.params.subscribe(params=>{
+          console.log(params)
+          this.query = params['q']
+      })
+  }
+
+  ngOnInit() {
+      
+  }
+  ngOnDestroy(){
+      this.routeSub.unsubscribe()
+  }
+
 }
