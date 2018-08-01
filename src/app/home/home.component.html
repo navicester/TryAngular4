@@ -3,10 +3,12 @@
   <div class="container">
     <carousel *ngIf="homeImageList">
       <slide class="text-center" *ngFor='let imageObj of homeImageList'>
-        <a class="" href="/videos/video-1" (click)="preventNormal($event, imageObj)"><img class="img-main-carousel img-responsive" [src]="imageObj.image" alt="first slide" ></a>
+        <a class="" routerLink='/videos/{{ imageObj.slug }}' routerLinkActive="active">
+          <img class="img-main-carousel img-responsive" [src]="imageObj.image" alt="first slide" >
+        </a>
         <div class="carousel-caption d-none d-md-block">
           <h3>{{ imageObj.name }}</h3>
-          <a class="btn btn-default" href="/videos/{{ imageObj.slug }}"> View</a>
+          <a class="btn btn-default" routerLink='/videos/{{ imageObj.slug }}' routerLinkActive="active"> View</a>
         </div>
       </slide><!-- 
       <slide>
