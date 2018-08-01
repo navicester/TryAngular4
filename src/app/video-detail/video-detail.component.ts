@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 // import { Http } from '@angular/http';
 import { VideoService } from '../videos/videos.service'
+import { VideoItem } from '../videos/video';
 
 @Component({
   selector: 'video-detail',
@@ -19,7 +20,7 @@ export class VideoDetailComponent implements OnInit, OnDestroy {
   //   slug: 'item-1',
   //   embed: `95851db6%2Dd22f%2D4e32%2D8d7c%2Dc06a907f9457`,      
   // }
-  video: any;
+  video: VideoItem;
   slug:string;
   // constructor(private route: ActivatedRoute, private http:Http) { }
   constructor(private route: ActivatedRoute, private _video:VideoService) { }
@@ -35,7 +36,7 @@ export class VideoDetailComponent implements OnInit, OnDestroy {
       //     }   
       //   })             
       this.req = this._video.get(this.slug).subscribe(data=>{
-        this.video = data
+        this.video = data as VideoItem
       })      
     }) 
   }

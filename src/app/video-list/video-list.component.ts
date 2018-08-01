@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 // import { DomSanitizer } from '@angular/platform-browser'
 // import { Http } from '@angular/http';
 import { VideoService } from '../videos/videos.service'
+import { VideoItem } from '../videos/video';
 
 @Component({
   selector: 'video-list',
@@ -15,7 +16,7 @@ export class VideoListComponent implements OnInit {
   title = "video list"
   // todayDate;
   // videoList= ["Item 1", "Item 2", "Item3"]
-  videoList : [any];
+  videoList : [VideoItem];
   // videoList = [
   //   {
   //     name: 'Item 1',
@@ -47,7 +48,7 @@ export class VideoListComponent implements OnInit {
     //   this.videoList = data.json() as [any];
     this.req = this._video.list().subscribe(data=>{
       console.log(data)
-      this.videoList = data as [any];
+      this.videoList = data as [VideoItem];
     })    
   }
 

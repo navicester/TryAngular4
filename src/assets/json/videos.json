@@ -11,7 +11,7 @@
     "slug": "item-2",
     "embed": "10d528b2%2Ddc88%2D4ad5%2D8bb5%2D7aceff22c5ef",
     "image":"assets/images/nature/5.jpg",
-    "featured":false
+    "featured":true
   },
   {
     "name": "Item 3",
