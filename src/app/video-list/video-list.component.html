@@ -1,9 +1,9 @@
 <h1>
-  {{title}} {{todayDate | date: "MM/dd/yy"}}
+  {{title}}
 </h1>
 
 <div *ngFor='let item of videoList' >  
-  <a href="videos/{{item.slug}}" >{{item.name}}</a>
+  <h1><a href="videos/{{item.slug}}" >{{item.name}}</a></h1>
   <!-- <div [innerHTML] = 'item.embed'></div> -->
   <div style="position: relative; height:0; padding-bottom: 35%" *ngIf='item.embed'>
   <!-- <div style="position: relative; height:0; padding-bottom: 56.25%" *ngIf='item.embed'> -->

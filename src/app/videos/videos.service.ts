@@ -19,8 +19,7 @@ export class VideoService {
       // .catch(this.handleError)
       .pipe(
            map(response=>response.json()), 
-           catchError( this.handleError);
-        )
+           catchError(this.handleError))
   }
 
   get(slug){
@@ -39,6 +38,22 @@ export class VideoService {
         catchError(this.handleError)
       )
    }
+
+  search(query){
+    return this.http.get(endpoint)
+    .pipe(
+      map(response=>{
+          let data = []
+          let req = response.json().filter(item=>{
+            if (item.name.indexOf(query) >=0) {
+                 data.push(item)
+            }
+          })
+          return data
+       }),
+      catchError(this.handleError)
+      )
+  }
 
   private handleError(error:any, caught:any):any{
       console.log("handleError")

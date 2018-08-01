@@ -12,8 +12,8 @@ import { VideoService } from '../videos/videos.service'
 export class VideoListComponent implements OnInit {
 
   private req:any
-  title = "someting"
-  todayDate;
+  title = "video list"
+  // todayDate;
   // videoList= ["Item 1", "Item 2", "Item3"]
   videoList : [any];
   // videoList = [
@@ -41,7 +41,7 @@ export class VideoListComponent implements OnInit {
   // constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    this.todayDate = new Date()
+    // this.todayDate = new Date()
     // this.req = this.http.get("assets/json/videos.json").subscribe(data=>{
     //   console.log(data.json())
     //   this.videoList = data.json() as [any];
