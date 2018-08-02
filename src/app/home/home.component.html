@@ -2,6 +2,17 @@
 <div class="jumbotron">
   <div class="container">
     <carousel *ngIf="homeImageList">
+      <slide>
+        <a class='' routerLink='/videos/' routerLinkActive="active">
+            <img class='img-main-carousel'  [src]='videoListDefaultImage' alt="First slide">
+        </a>
+        <div class="carousel-caption">
+          <h3>Video List</h3>
+          
+          <p><a class='btn btn-primary' routerLink='/videos/' routerLinkActive="active">View Videos</a></p>
+        </div>
+      </slide>
+      
       <slide class="text-center" *ngFor='let imageObj of homeImageList'>
         <a class="" routerLink='/videos/{{ imageObj.slug }}' routerLinkActive="active">
           <img class="img-main-carousel img-responsive" [src]="imageObj.image" alt="first slide" >

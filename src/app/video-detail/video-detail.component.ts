@@ -46,4 +46,8 @@ export class VideoDetailComponent implements OnInit, OnDestroy {
     this.req.unsubscribe()
   }
 
+  getEmbedUrl(item){
+    // return 'https://nokia.sharepoint.com/portals/hub/_layouts/15/VideoEmbedHost.aspx?chId=1b8cfb68%2D329c%2D45db%2D836c%2D0e3926661633&vId=' + item.embed + '&width=640&height=360&autoPlay=false&showInfo=true' 
+    return 'http://player.youku.com/embed/' + item.embed + '=='  
+  }
 }

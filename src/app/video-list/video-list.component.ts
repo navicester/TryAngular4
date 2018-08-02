@@ -56,8 +56,8 @@ export class VideoListComponent implements OnInit {
     this.req.unsubscribe()
   }
 
-  getEmbedUrl(item){
-    // return 'http://player.youku.com/embed/' + item.embed + '=='
-    return 'https://nokia.sharepoint.com/portals/hub/_layouts/15/VideoEmbedHost.aspx?chId=1b8cfb68%2D329c%2D45db%2D836c%2D0e3926661633&vId=' + item.embed + '&width=640&height=360&autoPlay=false&showInfo=true'    
-  }
+  // getEmbedUrl(item){
+  //   // return 'http://player.youku.com/embed/' + item.embed + '=='
+  //   return 'https://nokia.sharepoint.com/portals/hub/_layouts/15/VideoEmbedHost.aspx?chId=1b8cfb68%2D329c%2D45db%2D836c%2D0e3926661633&vId=' + item.embed + '&width=640&height=360&autoPlay=false&showInfo=true'    
+  // }
 }

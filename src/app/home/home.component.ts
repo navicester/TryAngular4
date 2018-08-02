@@ -9,12 +9,13 @@ import { VideoService } from '../videos/videos.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   // prevented = false
   private req:any;
 
   homeImageList:[VideoItem] = [] as [VideoItem]
+  videoListDefaultImage = "assets/images/videos/1.jpg"
   constructor(private http:Http, private router:Router, private _video:VideoService) { }
 
   ngOnInit() {

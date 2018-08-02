@@ -1,12 +1,29 @@
-<!-- <div *ngIf="video">
+<!-- 
+<div *ngIf="video">
     <h1>{{video.name}}</h1>
     <p>
         {{video.slug}}
     </p>
-</div> -->
+</div> 
+-->
 
 <div *ngIf="!video">Loading</div>
+<!-- 
 <h1>{{video?.name}}</h1>
 <p>
     {{video?.slug}}
-</p>
+</p> 
+-->
+
+<div *ngIf='video'>
+    <h1>{{ video.name }}</h1>
+    <hr/>
+    <div style="position:relative;height:0;padding-bottom:56.25%" *ngIf='video.embed'>
+        <iframe [src]="getEmbedUrl(video) | safe" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class='text-center' *ngIf='video.image && !video.embed'>
+        <img class='img-responsive img-center' [src]='video.image' alt="{{ video.name }} image" />
+    </div>
+
+</div>
+
